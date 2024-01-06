@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOG</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='community.css')}}"
+    />
+  </head>
+  <body>
+    <div class="banner">
+      <div class="navbar">
+        <h1>Community</h1>
+        <ul>
+          <li><a href="/">LOGOUT</a></li>
+          <li><a href="/addprob/{{user_id}}">Create Post</a></li>
+        </ul>
+      </div>
+      <form class="search" action="/search" method="post">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Ask Something"
+          name="strcont"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">
+          <img
+            src="42-420613_search-symbol-transparent-background-removebg-preview.png"
+            alt=""
+          />
+        </button>
+      </form>
+
+      <div class="container">
+        <div class="subforum"></div>
+      </div>
+      {%for post in community%}
+      <div class="card card">
+        <div class="profile">
+          <ul>
+            <li>
+              <h3
+                style="
+                  color: black;
+                  font-family: sans-serif;
+                  font-weight: light;
+                "
+              >
+                {{post[1]}}
+              </h3>
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="header">
+          <p style="color: black">{{post[2]}}</p>
+          <div class="images">
+            <p class="footer">{{post[3]}}</p>
+          </div>
+          <br />
+          <p>{{post[4]}}</p>
+          <br />
+          <a href="/sol/{{post[0]}}" style="font-style: none">COMMENTS</a>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </body>
+</html>

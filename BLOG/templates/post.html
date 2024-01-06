@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOG</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='post.css')}}" />
+  </head>
+  <body>
+    <div class="banner">
+      <div class="wrapper">
+        <div class="form-box login">
+          <h2>Create post</h2>
+          <form action="/post2/{{sid}}" method="post">
+            <div class="subject">
+              <input type="text" name="post_sub" />
+              <label>Subject</label>
+            </div>
+            <div class="input-box">
+              <textarea cols="30" rows="10" name="post_content"></textarea>
+              <label>Write Here</label>
+            </div>
+
+            <button type="submit" class="btn">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
